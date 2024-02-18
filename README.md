@@ -4,11 +4,10 @@ PlayPals is an innovative app designed to foster connections within local gaming
 
 ## Technologies Used
 
-- **React Native**: Ensures optimal compatibility across web, Android, and iOS platforms.
+- **React**: Ensures optimal compatibility across web, Android, and iOS platforms.
 - **Reclaim Protocol**: Efficiently retrieves Steam IDs and game information for enhanced user experience.
-- **Expo**: Implemented for frontend development, ensuring a smooth user interface.
+- **Exppress**: For Backend development and making APIs
 - **MongoDB**: Reliable data management solution for robust storage capabilities.
-- **Socket.io**: Facilitates real-time communication, allowing uninterrupted gameplay.
 
 ## Meet the Team
 
