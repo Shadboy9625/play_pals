@@ -1,11 +1,57 @@
 import Nav from "../components/Nav";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useCookies } from "react-cookie";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
+import QRCode from "qrcode.react";
+import { ReclaimClient } from "@reclaimprotocol/js-sdk";
 
 const OnBoarding = () => {
+  const getVerificationReq = async () => {
+    const APP_ID = "0xf8C8bDE8BF1100C6AF9d0f34b24becA88CeC5399";
+    const APP_SECRET =
+      "0xdea76dc6d6a8c1ee80aeba950f6f5f309aa51da4bbcf35d93dac2360f0e1b6f0"; // do not store on frontend in production
+
+    const reclaimClient = new ReclaimClient(APP_ID);
+
+    const providers = [
+      "1bba104c-f7e3-4b58-8b42-f8c0346cdeab", // Steam ID
+    ];
+
+    const providerV2 = await reclaimClient.buildHttpProviderV2ByID(providers);
+    const requestProofs = reclaimClient.buildRequestedProofs(
+      providerV2,
+      reclaimClient.getAppCallbackUrl()
+    );
+
+    reclaimClient.setSignature(
+      await reclaimClient.getSignature(requestProofs, APP_SECRET)
+    );
+
+    const reclaimReq = await reclaimClient.createVerificationRequest(providers);
+    console.log("req", reclaimReq.template);
+    const url = await reclaimReq.start();
+    console.log(url);
+    setUrl(url);
+    console.log(url);
+
+    reclaimReq.on("success", (data) => {
+      if (data) {
+        const proofs = data;
+        console.log(proofs);
+      }
+    });
+
+    reclaimReq.on("error", (data) => {
+      if (data) {
+        const proofs = data;
+        // TODO: update business logic based on proof generation failure
+      }
+    });
+  };
+
   const [cookies, setCookie, removeCookie] = useCookies(null);
+  const [url, setUrl] = useState("");
   const [formData, setFormData] = useState({
     user_id: cookies.UserId,
     first_name: "",
@@ -48,7 +94,9 @@ const OnBoarding = () => {
       [name]: value,
     }));
   };
-
+  useEffect(() => {
+    getVerificationReq();
+  }, []);
   return (
     <div className="onboarding">
       <div className="onboarding">
@@ -64,7 +112,6 @@ const OnBoarding = () => {
               value={formData.first_name}
               onChange={handleChange}
             />
-
             <label>Birthday</label>
             <div className="multiple-input-container">
               <input
@@ -97,7 +144,6 @@ const OnBoarding = () => {
                 onChange={handleChange}
               />
             </div>
-
             <label>Gender</label>
             <div className="multiple-input-container">
               <input
@@ -169,17 +215,8 @@ const OnBoarding = () => {
               />
               <label htmlFor="everyone-gender-interest">Everyone</label>
             </div> */}
-
-            <label htmlFor="about">Steam ID</label>
-            <input
-              id="about"
-              type="text"
-              name="about"
-              required={false}
-              placeholder="Enter your steam ID here"
-              value={formData.about}
-              onChange={handleChange}
-            />
+            <label htmlFor="about">QR Code</label>
+            <QRCode value={url} />{" "}
             <div>
               <label>Your Favorite Games</label>
               <div>
@@ -192,7 +229,6 @@ const OnBoarding = () => {
                 />
               </div>
             </div>
-
             <input type="submit" />
           </section>
 

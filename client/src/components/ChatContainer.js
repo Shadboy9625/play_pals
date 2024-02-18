@@ -15,6 +15,7 @@ const ChatContainer = ({ user }) => {
   const [appInfos, setAppInfos] = useState([]);
   const [numberOfGames, setNumberOfGames] = useState(0);
   const [showFriends, setShowFriends] = useState(false);
+  const [showGames, setGames] = useState(false);
 
   useEffect(() => {
     const getSteamId = async () => {
@@ -109,15 +110,28 @@ const ChatContainer = ({ user }) => {
         >
           Matches
         </button>
-        <button style={{ cursor: "pointer" }} className="option">
-          Chat
+
+        <button
+          style={{ cursor: "pointer" }}
+          onClick={() => setGames(!showGames)}
+          className="option"
+        >
+          Show Games
         </button>
+
+        {showGames && (
+          <ul>
+            <li>Game 1</li>
+            <li>Game 2</li>
+          </ul>
+        )}
+
         <button
           className="option"
           onClick={() => setShowFriends(!showFriends)}
           style={{ cursor: "pointer" }}
         >
-          Steam Friends
+          Show Friends
         </button>
 
         {showFriends && (
