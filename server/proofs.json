@@ -1,0 +1,46 @@
+[
+    {
+        "identifier": "0x3b404ee610eedcd621e4c779300864e45ce8cde101ffdba6737bcb5873c26af5",
+        "claimData": {
+            "provider": "http",
+            "parameters": "{\"body\":\"\",\"geoLocation\":\"in\",\"method\":\"GET\",\"responseMatches\":[{\"type\":\"contains\",\"value\":\"_steamid\\\">Steam ID: 76561199073996019</div>\"}],\"responseRedactions\":[{\"jsonPath\":\"\",\"regex\":\"_steamid\\\">Steam ID: (.*)</div>\",\"xPath\":\"id(\\\"responsive_page_template_content\\\")/div[@class=\\\"page_header_ctn\\\"]/div[@class=\\\"page_content\\\"]/div[@class=\\\"youraccount_steamid\\\"]\"}],\"url\":\"https://store.steampowered.com/account/\"}",
+            "owner": "0x3fdf7a8667ef6c27bf0b82793283fa689713f526",
+            "timestampS": 1708156179,
+            "context": "",
+            "identifier": "0x3b404ee610eedcd621e4c779300864e45ce8cde101ffdba6737bcb5873c26af5",
+            "epoch": 2
+        },
+        "signatures": [
+            "0x8c9eb1b75cc45ae0cfb9c322e8619f4deb351bea34f48d69ca089a09132b066d121c444e5096107ca7bd9adee09f1bc2d49ad1b65d778891cef4b14e6d1da3ac1b"
+        ],
+        "witnesses": [
+            {
+                "id": "0x244897572368eadf65bfbc5aec98d8e5443a9072",
+                "url": "https://reclaim-node.questbook.app"
+            }
+        ]
+    },
+
+        {
+            "identifier": "0xb657ab8fa77dd647c6f54c75efb2994fb28ae0f5573ec1158546729c590c8702",
+            "claimData": {
+                "provider": "http",
+                "parameters": "{\"body\":\"\",\"geoLocation\":\"in\",\"method\":\"GET\",\"responseMatches\":[{\"type\":\"contains\",\"value\":\"_steamid\\\">Steam ID: 76561199040720807</div>\"}],\"responseRedactions\":[{\"jsonPath\":\"\",\"regex\":\"_steamid\\\">Steam ID: (.*)</div>\",\"xPath\":\"id(\\\"responsive_page_template_content\\\")/div[@class=\\\"page_header_ctn\\\"]/div[@class=\\\"page_content\\\"]/div[@class=\\\"youraccount_steamid\\\"]\"}],\"url\":\"https://store.steampowered.com/account/\"}",
+                "owner": "0xc7572e3977da919de1792e7d316b44970fee8427",
+                "timestampS": 1708199589,
+                "context": "",
+                "identifier": "0xb657ab8fa77dd647c6f54c75efb2994fb28ae0f5573ec1158546729c590c8702",
+                "epoch": 2
+            },
+            "signatures": [
+                "0x8b21822f9e1defcbd10905d720373cf945e527cbcf1f0b80f085cddcfde9482c6c48b78cc5ff9db545dd45fb5bcfa04502cc84076b8f35d9cb77a66a71fab25e1b"
+            ],
+            "witnesses": [
+                {
+                    "id": "0x244897572368eadf65bfbc5aec98d8e5443a9072",
+                    "url": "https://reclaim-node.questbook.app"
+                }
+            ]
+        }
+ 
+]

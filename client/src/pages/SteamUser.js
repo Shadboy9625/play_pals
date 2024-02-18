@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 
-function App() {
+const  SteamUser = () =>{
   const [steamId, setSteamId] = useState(null);
   const [appId, setAppId] = useState(null);
   const [friends, setFriends] = useState([]);
@@ -13,7 +13,7 @@ function App() {
   
    useEffect(() => {
     const getSteamId = async () => {
-      const response = await axios.get('http://localhost:3000/get-steam-id');
+      const response = await axios.get('http://localhost:8000/get-steam-id');
       setSteamId(response.data['Steam IDs'][1]);
     };
    
@@ -23,7 +23,7 @@ function App() {
   useEffect(() => {
     const getFriends = async () => {
       if (steamId) {
-        const response = await axios.get(`http://localhost:3000/get-friends/${steamId}`);
+        const response = await axios.get(`http://localhost:8000/get-friends/${steamId}`);
        
         setFriends(response.data['Friends']);
       }
@@ -35,7 +35,7 @@ function App() {
   useEffect(() => {
     const getUserInfo = async () => {
       if (steamId) {
-        const response = await axios.get(`http://localhost:3000/get-user-info/${steamId}`);
+        const response = await axios.get(`http://localhost:8000/get-user-info/${steamId}`);
         setUserInfo(response.data);
       }
     };
@@ -45,7 +45,7 @@ function App() {
   useEffect(() => {
     const getNumberOfGames = async () => {
       if (steamId) {
-        const response = await axios.get(`http://localhost:3000/get-number-of-games/${steamId}`);
+        const response = await axios.get(`http://localhost:8000/get-number-of-games/${steamId}`);
         setNumberOfGames(response.data['Number of games']);
       }
     };
@@ -54,11 +54,11 @@ function App() {
   
     useEffect(() => {
     const getFriendsInfo = async () => {
-    const response = await axios.get(`http://localhost:3000/get-friends/76561199040720807`);
+    const response = await axios.get(`http://localhost:8000/get-friends/76561199040720807`);
       const friends = response.data['Friends'];
       
       const friendsInfo = await Promise.all(friends.map(async (friendId) => {
-        const response = await axios.get(`http://localhost:3000/get-user-info/${friendId}`);
+        const response = await axios.get(`http://localhost:8000/get-user-info/${friendId}`);
         return response.data;
       }));
 
@@ -71,7 +71,7 @@ function App() {
   useEffect(() => {
     const getGamesInfo = async () => {
       if (steamId) {
-        const response = await axios.get(`http://localhost:3000/get-games-info/${steamId}`);
+        const response = await axios.get(`http://localhost:8000/get-games-info/${steamId}`);
         setGamesInfo(response.data['Games']);
       }
     };
@@ -81,7 +81,7 @@ function App() {
   // useEffect(() => {
   //   const getAppInfos = async () => {
   //     if (appId) {
-  //       const response = await axios.get(`http://localhost:3000/get-app-info/${appId}`);
+  //       const response = await axios.get(`http://localhost:8000/get-app-info/${appId}`);
   //       setGamesInfo(response.data['Games']);
   //     }
   //   };
@@ -97,7 +97,7 @@ function App() {
       <img src={userInfo['Avatar Full']} alt="Avatar" />
       <h2>Total Number of Games: {numberOfGames}</h2>
       <h1>Friends</h1>
-      {/* <ul>
+      <ul>
         {gamesInfo.map((game, index) => (
           <li key={index}>
             {appInfos.map((appInfo, index) => (
@@ -109,7 +109,7 @@ function App() {
             
           </li>
         ))}
-      </ul> */}
+      </ul>
       <ul>
         {friendsInfo.map((friendInfo, index) => (
           <li key={index}>
@@ -122,4 +122,4 @@ function App() {
   );
 }
 
-export default App;
+export default SteamUser;

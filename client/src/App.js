@@ -1,6 +1,7 @@
 import Home from './pages/Home'
 import Dashboard from './pages/Dashboard'
 import OnBoarding from './pages/OnBoarding'
+import SteamUser from './pages/SteamUser'
 import {BrowserRouter, Route, Routes} from 'react-router-dom'
 import {useCookies} from 'react-cookie'
 
@@ -15,7 +16,7 @@ const App = () => {
                 <Route path="/" element={<Home/>}/>
                 {authToken && <Route path="/dashboard" element={<Dashboard/>}/>}
                 {authToken && <Route path="/onboarding" element={<OnBoarding/>}/>}
-
+                <Route path="/steam-user" element={<SteamUser/>}/>
             </Routes>
         </BrowserRouter>
     )

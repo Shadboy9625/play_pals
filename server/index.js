@@ -5,6 +5,8 @@ const { v4: uuidv4 } = require("uuid");
 const jwt = require("jsonwebtoken");
 const cors = require("cors");
 const bcrypt = require("bcrypt");
+const axios = require("axios");
+const fs = require("fs");
 require("dotenv").config();
 
 const uri = process.env.URI;
@@ -346,6 +348,5 @@ app.get('/get-user-info/:id', async (req, res) => {
         res.status(500).send('Error fetching data from Steam API');
     }
 });
-
 
 app.listen(PORT, () => console.log("server running on PORT " + PORT));
