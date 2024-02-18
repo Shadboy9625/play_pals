@@ -10,7 +10,7 @@ const fs = require("fs");
 require("dotenv").config();
 
 const uri = process.env.URI;
-console.log(uri);
+
 
 const app = express();
 app.use(cors());
@@ -288,7 +288,7 @@ app.get('/get-number-of-games/:id', async (req, res) => {
 
 app.get('/get-games-info/:id', async (req, res) => {
     const steamId = req.params.id;
-    const url = `http://api.steampowered.com/IPlayerService/GetOwnedGames/v0001/?key=B89AE86464016CD848D71718B8AA4AF1&steamid=${steamId}&format=json`;
+    const url = `http://api.steampowered.com/IPlayerService/GetOwnedGames/v0001/?key=B89AE86464016CD848D71718B8AA4AF1&steamid=76561199019151575&format=json`;
     try {
         const response = await axios.get(url);
         const games = response.data.response.games;
