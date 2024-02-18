@@ -10,6 +10,7 @@ const fs = require("fs");
 require("dotenv").config();
 
 const uri = process.env.URI;
+console.log(uri);
 
 const app = express();
 app.use(cors());
