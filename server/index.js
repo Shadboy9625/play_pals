@@ -248,4 +248,105 @@ app.post("/message", async (req, res) => {
   }
 });
 
+
+app.get('/get-steam-id', (req, res) => {
+    fs.readFile('proofs.json', (err, data) => {
+        if (err) {
+            res.status(500).send('Error reading file');
+            return;
+        }
+
+    const jsonArray = JSON.parse(data);
+    const steamIds = jsonArray.map(json => {
+        const parameters = JSON.parse(json.claimData.parameters);
+        const responseMatches = parameters.responseMatches[0].value;
+
+        const regex = /Steam ID: (\d+)/;
+        const match = responseMatches.match(regex);
+
+    return match ? match[1] : null;
+}).filter(id => id !== null);
+
+    res.json({ 'Steam IDs': steamIds });
+    });
+});
+
+app.get('/get-number-of-games/:id', async (req, res) => {
+    const steamId = req.params.id;
+    const url = `http://api.steampowered.com/IPlayerService/GetOwnedGames/v0001/?key=B89AE86464016CD848D71718B8AA4AF1&steamid=${steamId}&format=json`;
+    try {
+        const response = await axios.get(url);
+        const numberOfGames = response.data.response.game_count;
+        res.json({ 'Number of games': numberOfGames });
+    } catch (error) {
+        res.status(500).send('Error fetching data');
+    }
+   
+});
+
+app.get('/get-games-info/:id', async (req, res) => {
+    const steamId = req.params.id;
+    const url = `http://api.steampowered.com/IPlayerService/GetOwnedGames/v0001/?key=B89AE86464016CD848D71718B8AA4AF1&steamid=${steamId}&format=json`;
+    try {
+        const response = await axios.get(url);
+        const games = response.data.response.games;
+        res.json({ 'Games': games });
+    } catch (error) {
+        res.status(500).send('Error fetching data');
+    }
+});
+
+app.get('/get-app-info/:id', async (req, res) => {
+    const appId = req.params.id;
+    const url = `https://store.steampowered.com/api/appdetails?appids=${appId}`;
+    try {
+        const response = await axios.get(url);
+        const app = response.data[appId];
+        
+        res.json({ 'App': app });
+    } catch (error) {
+        res.status(500).send('Error fetching data');
+    }
+});
+
+app.get('/get-game-achievements/:id', async (req, res) => {
+    const steamId = req.params.id;
+    const url = `http://api.steampowered.com/IPlayerService/GetOwnedGames/v0001/?key=B89AE86464016CD848D71718B8AA4AF1&steamid=${steamId}&format=json`;
+    try {
+        const response = await axios.get(url);
+        const games = response.data.response.games;
+        res.json({ 'Games': games });
+    } catch (error) {
+        res.status(500).send('Error fetching data');
+    }
+});
+
+app.get('/get-friends/:id', async (req, res) => {
+    const steamId = req.params.id;
+    const url = `http://api.steampowered.com/ISteamUser/GetFriendList/v0001/?key=B89AE86464016CD848D71718B8AA4AF1&steamid=${steamId}&relationship=friend`;
+    try {
+        const response = await axios.get(url);
+        const friends = response.data.friendslist.friends;
+        const steamIds = friends.map(friend => friend.steamid);
+        res.json({ 'Friends': steamIds });
+    } catch (error) {
+        res.status(500).send('Error fetching data');
+    }
+});
+
+app.get('/get-user-info/:id', async (req, res) => {
+    const steamId = req.params.id;
+    const url = `https://api.steampowered.com/ISteamUser/GetPlayerSummaries/v0002/?key=B89AE86464016CD848D71718B8AA4AF1&steamids=${steamId}`
+    try {
+        const response = await axios.get(url);
+        const playerInfo = response.data.response.players[0];
+        const personName = playerInfo.personaname;
+        const avatarFull = playerInfo.avatarfull;
+        res.json({ 'Person Name': personName, 'Avatar Full': avatarFull });
+    } catch (error) {
+        res.status(500).send('Error fetching data from Steam API');
+    }
+});
+
+
 app.listen(PORT, () => console.log("server running on PORT " + PORT));
