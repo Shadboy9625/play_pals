@@ -22,7 +22,7 @@ import { ReclaimClient } from '@reclaimprotocol/js-sdk';
   console.log('req', reclaimReq.template);
   const url = await reclaimReq.start();
   console.log(url);
- 
+
   reclaimReq.on('success', (data) => {
     if (data) {
       const proofs = data;
@@ -37,17 +37,6 @@ import { ReclaimClient } from '@reclaimprotocol/js-sdk';
     }
   });
 };
-export function getUrl() {
-  return new Promise((resolve, reject) => {
-    const checkUrl = setInterval(() => {
-      if (url) {
-        clearInterval(checkUrl);
-        resolve(url);
-      }
-    }, 100);
-  });
-}
-let url;
 
 export default getVerificationReq;
 // call when user clicks on a button

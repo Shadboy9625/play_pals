@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import QRCode from 'qrcode.react';
-
+impo
 const  SteamUser = () =>{
   const [steamId, setSteamId] = useState(null);
   const [appId, setAppId] = useState(null);
@@ -120,7 +119,6 @@ const  SteamUser = () =>{
         ))}
       </ul>
       
-      <QRCode value="https://api.reclaimprotocol.org/api/sdk/verification-url/11ae7033-4c08-4202-8e0a-a7cce2536e83" />
     </div>
   );
 }

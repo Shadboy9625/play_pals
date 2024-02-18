@@ -2,9 +2,8 @@ import Nav from "../components/Nav";
 import { useState } from "react";
 import { useCookies } from "react-cookie";
 import { useNavigate } from "react-router-dom";
-import QRCode from "qrcode.react";
 import axios from "axios";
-import { ReclaimClient } from "@reclaimprotocol/js-sdk";
+import QRCode from "react-qr-code";
 const OnBoarding = () => {
   const [cookies, setCookie, removeCookie] = useCookies(null);
   const [formData, setFormData] = useState({
@@ -171,8 +170,8 @@ const OnBoarding = () => {
               <label htmlFor="everyone-gender-interest">Everyone</label>
             </div> */}
 
-            {/* <label htmlFor="about">Steam ID</label> */}
-            {/* <input
+            {/* <label htmlFor="about">Steam ID</label>
+            <input
               id="about"
               type="text"
               name="about"
@@ -181,7 +180,8 @@ const OnBoarding = () => {
               value={formData.about}
               onChange={handleChange}
             /> */}
-            <QRCode value="https://github.com" />
+            
+            <QRCode value="https://api.reclaimprotocol.org/api/sdk/verification-url/11ae7033-4c08-4202-8e0a-a7cce2536e83" />
             <div>
               <label>Your Favorite Games</label>
               <div>
