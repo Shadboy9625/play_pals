@@ -1,0 +1,25 @@
+<svg width="1080" height="900" viewBox="0 0 1080 900" fill="none" xmlns="http://www.w3.org/2000/svg">
+<rect width="1280" height="900" fill="url(#paint0_linear_235_21)"/>
+<g opacity="0.8">
+<rect width="6.26609" height="181.652" rx="3.13305" transform="matrix(-0.847787 0.530336 0.616875 0.787061 284.984 98.4236)" fill="#0062FF"/>
+<rect width="4.69957" height="136.427" rx="2.34979" transform="matrix(-0.847787 0.530336 0.616875 0.787061 586.026 85.3878)" fill="#0062FF"/>
+<rect width="7.04936" height="52.762" rx="3.52468" transform="matrix(-0.847787 0.530336 0.616875 0.787061 833.642 201.986)" fill="#0062FF"/>
+<rect width="23.4979" height="301.497" rx="11.7489" transform="matrix(-0.847787 0.530336 0.616875 0.787061 313.374 84.6636)" fill="#0062FF"/>
+<rect width="18.015" height="226.123" rx="9.00751" transform="matrix(-0.847787 0.530336 0.616875 0.787061 350.879 5)" fill="#0062FF"/>
+<rect width="14.882" height="301.497" rx="7.44099" transform="matrix(-0.847787 0.530336 0.616875 0.787061 879.194 542.367)" fill="#0062FF"/>
+<rect opacity="0.312783" width="3.7897" height="182.002" rx="1.89485" transform="matrix(-0.838796 0.544446 0.630942 0.77583 551.173 497.466)" fill="#0062FF"/>
+<rect opacity="0.312783" width="3.7897" height="182.002" rx="1.89485" transform="matrix(-0.838796 0.544446 0.630942 0.77583 669.527 756.734)" fill="#0062FF"/>
+<rect opacity="0.312783" width="3.7897" height="182.002" rx="1.89485" transform="matrix(-0.838796 0.544446 0.630942 0.77583 819.496 603.201)" fill="#0062FF"/>
+<rect width="3.7897" height="75.5194" rx="1.89485" transform="matrix(-0.838796 0.544446 0.630942 0.77583 508.209 475.739)" fill="#0062FF"/>
+<rect opacity="0.169044" width="5.35576" height="56.6395" rx="2.67788" transform="matrix(-0.838796 0.544446 0.630942 0.77583 113.119 207.572)" fill="#0062FF"/>
+<rect opacity="0.312783" width="6.25491" height="182.002" rx="3.12745" transform="matrix(-0.838796 0.544446 0.630942 0.77583 661.867 536.573)" fill="#0062FF"/>
+<rect width="3.7897" height="182.002" rx="1.89485" transform="matrix(-0.838796 0.544446 0.630942 0.77583 33.9832 348.278)" fill="#0062FF"/>
+<rect opacity="0.143965" width="9.38236" height="182.002" rx="4.69118" transform="matrix(-0.838796 0.544446 0.630942 0.77583 7.86987 348.278)" fill="#0062FF"/>
+</g>
+<defs>
+<linearGradient id="paint0_linear_235_21" x1="640" y1="0" x2="640" y2="900" gradientUnits="userSpaceOnUse">
+<stop offset="0.139" stop-color="#1A1A1E"/>
+<stop offset="1" stop-color="#0062FF" stop-opacity="0.4"/>
+</linearGradient>
+</defs>
+</svg>
