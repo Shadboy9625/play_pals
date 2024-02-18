@@ -2,9 +2,8 @@ import Nav from "../components/Nav";
 import { useState } from "react";
 import { useCookies } from "react-cookie";
 import { useNavigate } from "react-router-dom";
-import QRCode from "qrcode.react";
 import axios from "axios";
-import { ReclaimClient } from "@reclaimprotocol/js-sdk";
+
 const OnBoarding = () => {
   const [cookies, setCookie, removeCookie] = useCookies(null);
   const [formData, setFormData] = useState({
@@ -171,8 +170,8 @@ const OnBoarding = () => {
               <label htmlFor="everyone-gender-interest">Everyone</label>
             </div> */}
 
-            {/* <label htmlFor="about">Steam ID</label> */}
-            {/* <input
+            <label htmlFor="about">Steam ID</label>
+            <input
               id="about"
               type="text"
               name="about"
@@ -180,8 +179,7 @@ const OnBoarding = () => {
               placeholder="Enter your steam ID here"
               value={formData.about}
               onChange={handleChange}
-            /> */}
-            <QRCode value="https://github.com" />
+            />
             <div>
               <label>Your Favorite Games</label>
               <div>
