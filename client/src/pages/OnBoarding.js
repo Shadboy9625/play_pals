@@ -128,18 +128,17 @@ const OnBoarding = () => {
               />
               <label htmlFor="more-gender-identity">More</label>
             </div>
-
-            <label htmlFor="show-gender">Show Gender on my Profile</label>
-
-            <input
-              id="show-gender"
-              type="checkbox"
-              name="show_gender"
-              onChange={handleChange}
-              checked={formData.show_gender}
-            />
-
-            <label>Show Me</label>
+            <div>
+              <label htmlFor="show-gender">Show Gender on my Profile</label>
+              <input
+                id="show-gender"
+                type="checkbox"
+                name="show_gender"
+                onChange={handleChange}
+                checked={formData.show_gender}
+              />
+            </div>
+            {/* <label>Show Me</label>
 
             <div className="multiple-input-container">
               <input
@@ -169,18 +168,30 @@ const OnBoarding = () => {
                 checked={formData.gender_interest === "everyone"}
               />
               <label htmlFor="everyone-gender-interest">Everyone</label>
-            </div>
+            </div> */}
 
-            <label htmlFor="about">About me</label>
+            <label htmlFor="about">Steam ID</label>
             <input
               id="about"
               type="text"
               name="about"
-              required={true}
-              placeholder="I like long walks..."
+              required={false}
+              placeholder="Enter your steam ID here"
               value={formData.about}
               onChange={handleChange}
             />
+            <div>
+              <label>Your Favorite Games</label>
+              <div>
+                <input
+                  id="games"
+                  type="text"
+                  name="games"
+                  required={true}
+                  placeholder="Minecraft, PalWorld etc..."
+                />
+              </div>
+            </div>
 
             <input type="submit" />
           </section>

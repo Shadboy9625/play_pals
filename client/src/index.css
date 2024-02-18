@@ -285,10 +285,11 @@ nav .logo-container .logo {
   justify-content: space-between;
   align-items: center;
 }
+
 .chat-container .option {
   border: none;
   background-color: rgb(255, 255, 255);
-  border-bottom: solid 4px rgb(243, 33, 33);
+  border-bottom: solid 4px #0062ff;
   font-size: 20px;
   margin: 2px;
   padding: 10px;
