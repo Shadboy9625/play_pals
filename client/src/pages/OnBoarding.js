@@ -52,8 +52,6 @@ const OnBoarding = () => {
   return (
     <div className="onboarding">
       <div className="onboarding">
-        <h2>CREATE ACCOUNT</h2>
-
         <form onSubmit={handleSubmit}>
           <section>
             <label htmlFor="first_name">First Name</label>

@@ -24,14 +24,14 @@ h2 {
   color: rgb(255, 255, 255);
   text-transform: uppercase;
   font-size: 15px;
-  background: linear-gradient(45deg, rgb(254, 48, 114), rgb(255, 89, 64));
+  background: linear-gradient(45deg, #0062ff, #0062ff);
   padding: 12px 30px;
   border-radius: 30px;
   border: none;
 }
 
 .primary-button:hover {
-  background: linear-gradient(260deg, rgb(254, 48, 114), rgb(255, 89, 64));
+  background: linear-gradient(260deg, #0022ff, #0022ff);
 }
 
 .secondary-button {
@@ -60,7 +60,7 @@ nav {
 }
 
 nav .nav-button {
-  color: rgb(254, 48, 114);
+  color: #0062ff;
   background-color: rgb(255, 255, 255);
   font-size: 20px;
   padding: 10px 20px;
@@ -71,7 +71,7 @@ nav .nav-button {
 
 nav .nav-button:disabled {
   background-color: rgb(181, 180, 180);
-  color: rgb(189, 42, 90);
+  color: #0062ff;
 }
 
 nav .logo-container {
@@ -138,7 +138,12 @@ nav .logo-container .logo {
 
 /*-------- OnBoarding Page --------*/
 .onboarding {
-  border-top: solid 1px rgb(213, 213, 213);
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  background: url("images/bg.svg");
+  filter: saturate(150%);
+  overflow: auto;
 }
 
 .onboarding form {
@@ -198,7 +203,7 @@ nav .logo-container .logo {
 }
 
 .onboarding form input[type="radio"]:checked + label {
-  border: solid 2px rgb(221, 39, 22);
+  border: solid 2px rgb(0, 0, 0);
 }
 
 .onboarding form input[type="submit"]:hover {
@@ -206,11 +211,16 @@ nav .logo-container .logo {
 }
 
 .onboarding form input[type="submit"]:active {
-  background-color: rgb(226, 115, 115);
+  background-color: rgb(235, 235, 235);
 }
 
 .onboarding form .photo-container img {
   width: 100%;
+}
+
+.onboarding form label {
+  margin: 10px 0;
+  color: white; /* Add this line */
 }
 
 /*-------- Dashboard  --------*/
@@ -269,13 +279,12 @@ nav .logo-container .logo {
 }
 
 .chat-container .chat-container-header {
-  background: linear-gradient(45deg, rgb(254, 48, 114), rgb(255, 89, 64));
+  background: linear-gradient(45deg, #0062ff, #0062ff);
   height: 100px;
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
-
 .chat-container .option {
   border: none;
   background-color: rgb(255, 255, 255);
