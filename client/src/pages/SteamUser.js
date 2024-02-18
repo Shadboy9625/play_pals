@@ -78,15 +78,15 @@ const  SteamUser = () =>{
     getGamesInfo();
   }, [steamId]);
   
-  // useEffect(() => {
-  //   const getAppInfos = async () => {
-  //     if (appId) {
-  //       const response = await axios.get(`http://localhost:8000/get-app-info/${appId}`);
-  //       setGamesInfo(response.data['Games']);
-  //     }
-  //   };
-  //   getAppInfos();
-  // }, [appId]);
+  useEffect(() => {
+    const getAppInfos = async () => {
+      if (appId) {
+        const response = await axios.get(`http://localhost:8000/get-app-info/${appId}`);
+        setGamesInfo(response.data['Games']);
+      }
+    };
+    getAppInfos();
+  }, [appId]);
  
 
   

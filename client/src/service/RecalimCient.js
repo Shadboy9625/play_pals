@@ -38,6 +38,6 @@ import { ReclaimClient } from '@reclaimprotocol/js-sdk';
   });
 };
 
-
+export default getVerificationReq;
 // call when user clicks on a button
 // onClick={getVerificationReq}
